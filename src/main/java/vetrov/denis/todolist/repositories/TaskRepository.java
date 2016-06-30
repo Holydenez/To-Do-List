@@ -16,17 +16,17 @@ public class TaskRepository {
     public TaskRepository() {
         tasks = new ArrayList<>();
         tasks.add(new Task()
-                .setName("h")
-                .setDone(true)
+                .setName("Купить помидоров")
+                .setDone(false)
                 .setChecked(true)
         );
         tasks.add(new Task()
-                .setName("io")
+                .setName("Зайти на Новую почту")
                 .setDone(false)
                 .setChecked(false)
         );
         tasks.add(new Task()
-                .setName("htgh")
+                .setName("Записать что съел на обед")
                 .setDone(false)
                 .setChecked(true)
         );

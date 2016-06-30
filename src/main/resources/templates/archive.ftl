@@ -21,7 +21,7 @@
 <#--<i class="material-icons prefix">account_circle</i>-->
 <#--<label>Hello ${UserName}</label>-->
 <#--</div>-->
-    <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
+    <h1 align="center" style="font-family: 'Calibri Light'">АРХИВ</h1>
     <section>
 
         <table style="width:90%; margin: auto" class="highlight centered bordered">
@@ -29,9 +29,9 @@
             <tbody>
             <#list tasks>
                 <#items as task>
-                <tr class="showhim">
+                <tr>
                     <td>
-                        <a class="waves-effect waves-light btn left-align ">Сделано</a>
+                        <a class="waves-effect waves-light btn left-align">Вернуть</a>
                     </td>
                     <td>
                         <div class="input-field col s6">
@@ -41,9 +41,9 @@
                     <td>
                         <div class="input-field col s6">
                             <#if task.isChecked()>
-                                <a> <img src="/img/star.png" width="30px" height="30px"></a>
+                                <img src="/img/star.png" width="30px" height="30px">
                             <#else>
-                                <a> <img src="/img/emptyStar.png" width="38px" height="38px"></a>
+                                <img src="/img/emptyStar.png" width="38px" height="38px">
                             </#if>
 
                         </div>
@@ -64,10 +64,8 @@
         </table>
     </section>
     <div class="bottom_buttons">
-        <a class="btn-floating btn-large waves-effect waves-light red right" href="/task/create"><i
-                class="material-icons">add</i></a>
         <div class="col s6">
-            <a class="waves-effect waves-light btn-large" href="/task/archive">Архив</a>
+            <a class="waves-effect waves-light btn-large" href="/task/all">Вернуться</a>
         </div>
     </div>
 </div>

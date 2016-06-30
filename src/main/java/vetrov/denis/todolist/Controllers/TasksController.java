@@ -38,7 +38,11 @@ public class TasksController {
         model.addObject("tasks", taskRepository.getTasks());
         return model;
     }
-
+    @RequestMapping(value = "/archive")
+    public ModelAndView showArchivePage() {
+        ModelAndView model = new ModelAndView("archive");
+        return model;
+    }
     @RequestMapping("/create")
     public ModelAndView showNewTasksPage() {
         ModelAndView model = new ModelAndView("newTask");

@@ -17,13 +17,13 @@
     <form method="POST" action="/task/create">
         <div class="row">
             <div style="margin: auto" class="input-field col s6">
-                <label for="taskContent">Ваша зметка</label>
+                <label for="taskContent">Ваша заметка</label>
                 <input name="name" id="taskContent" type="text" class="validate">
             </div>
 
             <div class="input-field col s6">
                 <p>
-                    <input type="checkbox" class="filled-in" id="checkStar"/>
+                    <input type="checkbox" class="filled-in" id="checkStar" checked="checked"/>
                     <label for="checkStar">Важное</label>
                 </p>
             </div>
@@ -31,7 +31,7 @@
         <div class="bottom_buttons">
             <div class="row">
                 <div class="col s6">
-                    <a class="waves-effect waves-light btn-large" href="/task/all">Венуться</a>
+                    <a class="waves-effect waves-light btn-large" href="/task/all">Вернуться</a>
                 </div>
                 <div class="col s6 right">
                     <button class="btn-large waves-effect waves-light" type="submit" name="action">Сохранить
