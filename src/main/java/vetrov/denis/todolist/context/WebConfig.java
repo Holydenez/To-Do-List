@@ -1,4 +1,4 @@
-package vetrov.denis.todolist;
+package vetrov.denis.todolist.context;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

@@ -1,4 +1,4 @@
-package vetrov.denis.todolist;
+package vetrov.denis.todolist.context;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

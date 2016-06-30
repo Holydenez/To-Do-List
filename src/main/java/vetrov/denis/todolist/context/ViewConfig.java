@@ -1,4 +1,4 @@
-package vetrov.denis.todolist;
+package vetrov.denis.todolist.context;
 
 import freemarker.template.TemplateException;
 import org.springframework.context.annotation.Bean;

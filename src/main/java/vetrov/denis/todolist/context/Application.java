@@ -1,4 +1,4 @@
-package vetrov.denis.todolist; /**
+package vetrov.denis.todolist.context; /**
  * Created by Denis on 23.03.2016.
  */
 
