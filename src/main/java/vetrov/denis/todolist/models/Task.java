@@ -2,12 +2,13 @@ package vetrov.denis.todolist.models;
 
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
  * Created by Denis on 23.03.2016.
  */
-public class Task {
+public class Task  {
     private String id;
     private String name;
     private boolean done;

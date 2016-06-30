@@ -14,28 +14,30 @@
 <body>
 <div class="container">
     <h3 align="center" style="font-family: 'Calibri Light'">Новая заметка </h3>
-    <form method="POST" action="/newTask" class="col s12">
-        <div style="margin: auto" class="input-field col s12">
-            <label for="taskContent"><input name="name" id="taskContent" type="text" class="validate">Ваша
-                зметка</label>
+    <form method="POST" action="/task/create">
+        <div class="row">
+            <div style="margin: auto" class="input-field col s6">
+                <label for="taskContent">Ваша зметка</label>
+                <input name="name" id="taskContent" type="text" class="validate">
+            </div>
+
+            <div class="input-field col s6">
+                <p>
+                    <input type="checkbox" class="filled-in" id="checkStar"/>
+                    <label for="checkStar">Важное</label>
+                </p>
+            </div>
         </div>
-    <#--<div class="input-field col s6">-->
-    <#--<label>Дата выполнения:-->
-    <#--<input style="width:50%;" type="date" id="datepicker"/>-->
-    <#--</label>-->
-    <#--</div>-->
-    <#--<div class="input-field col s6">-->
-    <#--<p>-->
-    <#--<input type="checkbox" class="filled-in" id="checkStar"/>-->
-    <#--<label for="checkStar">Важное</label>-->
-    <#--</p>-->
-    <#--</div>-->
         <div class="bottom_buttons">
-            <a class="waves-effect waves-light btn-large" href="/">Венуться к заметкам</a>
-            <div class="col s6 right">
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                </button>
+            <div class="row">
+                <div class="col s6">
+                    <a class="waves-effect waves-light btn-large" href="/task/all">Венуться</a>
+                </div>
+                <div class="col s6 right">
+                    <button class="btn-large waves-effect waves-light" type="submit" name="action">Сохранить
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </div>
         </div>
     </form>

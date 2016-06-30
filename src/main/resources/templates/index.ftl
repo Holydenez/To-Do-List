@@ -6,6 +6,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="/css/starCheckbox.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
@@ -48,7 +49,14 @@
                     </td>
                     <td>
                         <div class="input-field col s6">
-                            <i class="small material-icons">grade</i>
+                            <#if task.isChecked()>
+                                <input type="checkbox" id="${task.name}" class="css-checkbox" checked>
+                                <label for="${task.name}" class="css-label"> </label>
+                            <#else>
+                                <input type="checkbox" id="${task.name}" class="css-checkbox">
+                                <label for="${task.name}" class="css-label"> </label>
+                            </#if>
+
                         </div>
                     </td>
                 </tr>
@@ -64,7 +72,7 @@
         </table>
     </section>
     <div class="bottom_buttons">
-        <a class="btn-floating btn-large waves-effect waves-light red right" href="newTask"><i
+        <a class="btn-floating btn-large waves-effect waves-light red right" href="/task/create"><i
                 class="material-icons">add</i></a>
     </div>
 </div>

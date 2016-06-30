@@ -10654,7 +10654,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     }
 }
 
-.bottom_buttons {
+. bottom_buttons {
     display: inline-block;
     position: fixed;
     z-index: 100;
