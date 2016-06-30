@@ -30,15 +30,15 @@
     <#--<label for="checkStar">Важное</label>-->
     <#--</p>-->
     <#--</div>-->
-    </form>
-    <div class="bottom_buttons">
-        <a class="waves-effect waves-light btn-large" href="/">Венуться к заметкам</a>
-        <div class="col s6 right">
-            <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-            </button>
+        <div class="bottom_buttons">
+            <a class="waves-effect waves-light btn-large" href="/">Венуться к заметкам</a>
+            <div class="col s6 right">
+                <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 </body>
 </html>
