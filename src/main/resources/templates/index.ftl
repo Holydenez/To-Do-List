@@ -23,21 +23,13 @@
 <#--</div>-->
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <section>
-
         <table style="width:90%; margin: auto" class="highlight centered bordered">
 
             <tbody>
             <#list tasks>
                 <#items as task>
-                <tr class="showhim">
-                    <td>
-                        <a class="waves-effect waves-light btn left-align ">Сделано</a>
-                    </td>
-                    <td>
-                        <div class="input-field col s6">
-                            <p>${task.name}</p>
-                        </div>
-                    </td>
+
+                <tr>
                     <td>
                         <div class="input-field col s6">
                             <#if task.isChecked()>
@@ -45,11 +37,23 @@
                             <#else>
                                 <a> <img src="/img/emptyStar.png" width="38px" height="38px"></a>
                             </#if>
-
                         </div>
                     </td>
                     <td>
-                        <a class="btn-floating red btn-medium"> <i class="medium material-icons">mode_edit</i></a>
+                        <div class="input-field col s6">
+                            <p>${task.name}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="showHoverBtn">
+                            <div class="hiddendiv">
+                                <a class=" waves-effect waves-light btn left-align ">Сделано</a>
+                            </div>
+                            <div class="hiddendiv">
+                                <a class="btn-floating red btn-medium"> <i
+                                        class="medium material-icons">mode_edit</i></a>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 </#items>

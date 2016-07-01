@@ -8707,11 +8707,11 @@ textarea.materialize-textarea {
 }
 
 .hiddendiv {
-    display: none;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    padding-top: 1.2rem
+    display: inline-block;
+    opacity: 0;
+}
+.showHoverBtn:hover .hiddendiv{
+    opacity: 1;
 }
 
 [type="radio"]:not(:checked), [type="radio"]:checked {

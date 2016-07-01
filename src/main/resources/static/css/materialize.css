@@ -9038,13 +9038,8 @@ textarea.materialize-textarea {
 }
 
 .hiddendiv {
-  display: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  /* future version of deprecated 'word-wrap' */
-  padding-top: 1.2rem;
-  /* prevents text jump on Enter keypress */
+  display: inline-block;
+  opacity: 0;
 }
 
 /***************
@@ -11247,6 +11242,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   font-size: 1em;
   background: #f2f2f2;
   padding: 0;
+}
+.showHoverBtn:hover .hiddendiv{
+  opacity: 1;
 }
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
