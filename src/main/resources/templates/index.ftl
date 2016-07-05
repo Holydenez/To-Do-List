@@ -40,7 +40,7 @@
                         <a class=" waves-effect waves-light btn left-align" href="/task/addToArchive?id=${task.id}">Сделано</a>
                     </div>
                     <div class="hiddendiv">
-                        <a class="btn-floating red btn-medium"> <i
+                        <a class="btn-floating red btn-medium" href="/task/editTask?id=${task.id}"> <i
                                 class="medium material-icons">mode_edit</i></a>
                     </div>
                 </div>

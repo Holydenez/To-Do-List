@@ -15,8 +15,9 @@ public class Task  {
     private boolean done;
     private boolean checked;
 
-    public Task() {
-        id = UUID.randomUUID().toString();
+    public Task setId(String id) {
+        this.id = id;
+        return this;
     }
 
     public String getName() {
