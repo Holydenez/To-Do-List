@@ -1,9 +1,12 @@
 package vetrov.denis.todolist.repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import vetrov.denis.todolist.comparators.TaskComparator;
 import vetrov.denis.todolist.models.Task;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,6 +14,8 @@ import java.util.List;
  */
 @Repository
 public class TaskRepository {
+    @Autowired
+    TaskComparator taskComparator;
     List<Task> tasks;
 
     public TaskRepository() {
@@ -30,13 +35,58 @@ public class TaskRepository {
                 .setDone(false)
                 .setChecked(true)
         );
+        tasks.add(new Task()
+                .setName("Забрать перчатки из Розетки")
+                .setDone(true)
+                .setChecked(false)
+        );
+        tasks.add(new Task()
+                .setName("Скачать дискографию Эминема")
+                .setDone(true)
+                .setChecked(true)
+        );
     }
 
     public List<Task> getTasks() {
-        return tasks;
+        List<Task> activeTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (!task.isDone()) {
+                activeTasks.add(task);
+            }
+        }
+
+        Collections.sort(activeTasks, taskComparator);
+        return activeTasks;
+    }
+
+    public List<Task> getDoneTasks() {
+        List<Task> doneTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isDone()) {
+                doneTasks.add(task);
+            }
+        }
+        Collections.sort(doneTasks, taskComparator);
+        return doneTasks;
     }
 
     public void addTask(Task task) {
         tasks.add(task);
+    }
+    public void setTaskDone(String id) {
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                task.setDone(true);
+            }
+        }
+
+    }
+    public void undoTask(String id) {
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                task.setDone(false);
+            }
+        }
+
     }
 }

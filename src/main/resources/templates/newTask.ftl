@@ -21,7 +21,7 @@
                 <input name="name" id="taskContent" type="text" class="validate">
             </div>
             <div class="input-field col s12">
-                    <input checked="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
+                    <input name="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
                     <label for="checkStar">Важное</label>
             </div>
         </div>

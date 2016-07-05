@@ -37,7 +37,7 @@
                 </div>
                 <div class="showHoverBtn col s4 m4">
                     <div class="hiddendiv">
-                        <a class=" waves-effect waves-light btn left-align ">Сделано</a>
+                        <a class=" waves-effect waves-light btn left-align" href="/task/addToArchive?id=${task.id}">Сделано</a>
                     </div>
                     <div class="hiddendiv">
                         <a class="btn-floating red btn-medium"> <i
