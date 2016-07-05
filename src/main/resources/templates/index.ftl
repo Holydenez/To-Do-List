@@ -37,10 +37,10 @@
                 </div>
                 <div class="showHoverBtn col s4 m4">
                     <div class="hiddendiv">
-                        <a class=" waves-effect waves-light btn left-align" href="/task/addToArchive?id=${task.id}">Сделано</a>
+                        <a class=" waves-effect waves-light btn left-align" href="/task/archive/add?id=${task.id}">Сделано</a>
                     </div>
                     <div class="hiddendiv">
-                        <a class="btn-floating red btn-medium" href="/task/editTask?id=${task.id}"> <i
+                        <a class="btn-floating red btn-medium" href="/task/edit?id=${task.id}"> <i
                                 class="medium material-icons">mode_edit</i></a>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
         <a class="btn-floating btn-large waves-effect waves-light red right" href="/task/create"><i
                 class="material-icons">add</i></a>
         <div class="col s6">
-            <a class="waves-effect waves-light btn-large" href="/task/archive">Архив</a>
+            <a class="waves-effect waves-light btn-large" href="/task/archive/">Архив</a>
         </div>
     </div>
 </div>

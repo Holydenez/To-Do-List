@@ -37,11 +37,7 @@
                 </div>
                 <div class="showHoverBtn col s4 m4">
                     <div class="hiddendiv">
-                        <a class=" waves-effect waves-light btn left-align "  href="/task/getTaskBack?id=${task.id}">Вернуть</a>
-                    </div>
-                    <div class="hiddendiv">
-                        <a class="btn-floating red btn-medium"> <i
-                                class="medium material-icons">mode_edit</i></a>
+                        <a class=" waves-effect waves-light btn left-align "  href="/task/archive/remove?id=${task.id}">Вернуть</a>
                     </div>
                 </div>
             </div>
