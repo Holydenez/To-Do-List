@@ -91,11 +91,8 @@ public class TaskRepository {
     }
 
     public void editTask(Task newTask) {
-//        Task oldTask = ;
-//        oldTask.setName(newTask.getName());
         tasks.set(tasks.indexOf(getTask(newTask.getId())), newTask);
     }
-
 
     public void setTaskDone(String id) {
         for (Task task : tasks) {
@@ -110,6 +107,23 @@ public class TaskRepository {
         for (Task task : tasks) {
             if (task.getId().equals(id)) {
                 task.setDone(false);
+            }
+        }
+
+    }
+
+    public void setTaskChecked(String id) {
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                task.setChecked(true);
+            }
+        }
+
+    }
+    public void setTaskUnchecked(String id) {
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                task.setChecked(false);
             }
         }
 

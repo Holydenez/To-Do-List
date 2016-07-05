@@ -30,6 +30,19 @@ public class TasksController {
         return model;
     }
 
+    @RequestMapping("/checked")
+    public String setTaskChecked(@RequestParam String id) {
+        taskRepository.setTaskChecked(id);
+        taskRepository.getTasks();
+        return "redirect:/";
+    }
+
+    @RequestMapping("/unchecked")
+    public String setTaskUnchecked(@RequestParam String id) {
+        taskRepository.setTaskUnchecked(id);
+        taskRepository.getTasks();
+        return "redirect:/";
+    }
 
 }
 

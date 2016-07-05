@@ -16,10 +16,6 @@
 
 <body>
 <div class="container">
-<#--<div class="col s12"> Для пользователей -->
-<#--<i class="material-icons prefix">account_circle</i>-->
-<#--<label>Hello ${UserName}</label>-->
-<#--</div>-->
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <div class="row">
     <#list tasks>
@@ -27,9 +23,9 @@
             <div class="hoverable s12 col showHoverBtn">
                 <div class="col s4 m4 center-align">
                     <#if task.isChecked()>
-                        <a> <img src="/img/star.png" width="17%" height="17%"></a>
+                        <a href="/task/unchecked?id=${task.id}"> <img src="/img/star.png" width="17%" height="17%"></a>
                     <#else>
-                        <a> <img src="/img/emptyStar.png" width="19%" height="19%"></a>
+                        <a href="/task/checked?id=${task.id}"> <img src="/img/emptyStar.png" width="19%" height="19%"></a>
                     </#if>
                 </div>
                 <div class="col s4 m4 center-align">
