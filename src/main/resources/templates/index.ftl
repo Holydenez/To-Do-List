@@ -25,12 +25,19 @@
                     <#if task.isChecked()>
                         <a href="/task/unchecked?id=${task.id}"> <img src="/img/star.png" width="17%" height="17%"></a>
                     <#else>
-                        <a href="/task/checked?id=${task.id}"> <img src="/img/emptyStar.png" width="19%" height="19%"></a>
+                        <a href="/task/checked?id=${task.id}"> <img src="/img/emptyStar.png" width="19%"
+                                                                    height="19%"></a>
                     </#if>
                 </div>
                 <div class="col s4 m4 center-align">
-                    <p>${task.name}</p>
-                <p>${(task.planDate?date)!''}</p>
+                    <#if  task.isPlanDateFailed()>
+                        <p id="TaskName">${task.name}</p>
+                        <label style="color: red" for="TaskName">${(task.planDate?date)!''}</label>
+                    <#else>
+                        <p id="TaskName">${task.name}</p>
+                        <label for="TaskName">${(task.planDate?date)!''}</label>
+                    </#if>
+
                 </div>
                 <div class="showHoverBtn col s4 m4">
                     <div class="hiddendiv">

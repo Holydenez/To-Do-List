@@ -132,4 +132,10 @@ public class TaskRepository {
         }
 
     }
+    public void failedPlanedDate(Task task)
+    {
+        if(task.getPlanDate().before(new Date())){
+            task.setPlanDateFailed(true);
+        }
+    }
 }

@@ -18,6 +18,7 @@ public class Task  {
     private Date createDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date planDate;
+    private boolean planDateFailed;
     private boolean done;
     private boolean checked;
 
@@ -82,6 +83,15 @@ public class Task  {
 
     public Task setPlanDate(Date planDate) {
         this.planDate = planDate;
+        return this;
+    }
+
+    public boolean isPlanDateFailed() {
+        return planDateFailed;
+    }
+
+    public Task setPlanDateFailed(boolean planDateFailed) {
+        this.planDateFailed = planDateFailed;
         return this;
     }
 }

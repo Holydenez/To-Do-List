@@ -22,7 +22,11 @@
                 <label for="taskContent">Ваша заметка</label>
                 <input name="name" id="taskContent" type="text" class="validate" value="${task.name}">
             </div>
-            <div class="input-field col s12">
+            <div class="input-field col s4">
+                <label for="Date"></label>
+                <input name="planDate" type="date" id="Date" class="datepicker" value="${task.planDate?date}" />
+            </div>
+            <div class="input-field col s4">
                     <input name="checked" type="checkbox" class="filled-in validate" id="checkStar" checked value="true"/>
                     <label for="checkStar">Важное</label>
             </div>
