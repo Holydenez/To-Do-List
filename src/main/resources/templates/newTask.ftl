@@ -20,9 +20,13 @@
                 <label for="taskContent">Ваша заметка</label>
                 <input name="name" id="taskContent" type="text" class="validate">
             </div>
-            <div class="input-field col s12">
-                    <input name="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
-                    <label for="checkStar">Важное</label>
+            <div class="input-field col s4">
+                <label for="Date"></label>
+                <input name="planDate" type="date" id="Date" class="datepicker" />
+            </div>
+            <div class="input-field col s4">
+                <input name="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
+                <label for="checkStar">Важное</label>
             </div>
         </div>
         <div class="bottom_buttons">

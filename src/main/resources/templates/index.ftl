@@ -30,6 +30,7 @@
                 </div>
                 <div class="col s4 m4 center-align">
                     <p>${task.name}</p>
+                <p>${(task.planDate?date)!''}</p>
                 </div>
                 <div class="showHoverBtn col s4 m4">
                     <div class="hiddendiv">

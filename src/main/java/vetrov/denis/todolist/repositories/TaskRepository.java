@@ -5,10 +5,7 @@ import org.springframework.stereotype.Repository;
 import vetrov.denis.todolist.comparators.TaskComparator;
 import vetrov.denis.todolist.models.Task;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Denis on 30.06.2016.
@@ -26,30 +23,36 @@ public class TaskRepository {
                 .setName("Купить помидоров")
                 .setDone(false)
                 .setChecked(true)
+                .setCreateDate(new Date())
+                .setPlanDate(new Date(116,7,30))
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
                 .setName("Зайти на Новую почту")
                 .setDone(false)
                 .setChecked(false)
+                .setCreateDate(new Date())
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
                 .setName("Записать что съел на обед")
                 .setDone(false)
                 .setChecked(true)
+                .setCreateDate(new Date())
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
                 .setName("Забрать перчатки из Розетки")
                 .setDone(true)
                 .setChecked(false)
+                .setCreateDate(new Date())
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
                 .setName("Скачать дискографию Эминема")
                 .setDone(true)
                 .setChecked(true)
+                .setCreateDate(new Date())
         );
     }
 
@@ -120,6 +123,7 @@ public class TaskRepository {
         }
 
     }
+
     public void setTaskUnchecked(String id) {
         for (Task task : tasks) {
             if (task.getId().equals(id)) {
