@@ -3,7 +3,7 @@ package vetrov.denis.todolist.repositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import vetrov.denis.todolist.comparators.TaskComparator;
-import vetrov.denis.todolist.models.Task;
+import vetrov.denis.todolist.models.entities.Task;
 
 import java.util.*;
 
@@ -25,6 +25,7 @@ public class TaskRepository {
                 .setChecked(true)
                 .setCreateDate(new Date())
                 .setPlanDate(new Date(116,7,30))
+                .setCategory("Покупки")
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
@@ -32,6 +33,7 @@ public class TaskRepository {
                 .setDone(false)
                 .setChecked(false)
                 .setCreateDate(new Date())
+                .setCategory("Дела")
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
@@ -39,6 +41,7 @@ public class TaskRepository {
                 .setDone(false)
                 .setChecked(true)
                 .setCreateDate(new Date())
+                .setCategory("Покупки")
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
@@ -46,6 +49,7 @@ public class TaskRepository {
                 .setDone(true)
                 .setChecked(false)
                 .setCreateDate(new Date())
+                .setCategory("Дела")
         );
         tasks.add(new Task()
                 .setId(UUID.randomUUID().toString())
@@ -53,6 +57,7 @@ public class TaskRepository {
                 .setDone(true)
                 .setChecked(true)
                 .setCreateDate(new Date())
+                .setCategory("Дела")
         );
     }
 
@@ -132,8 +137,7 @@ public class TaskRepository {
         }
 
     }
-    public void failedPlanedDate(Task task)
-    {
+    public void failedPlanedDate(Task task) {
         if(task.getPlanDate().before(new Date())){
             task.setPlanDateFailed(true);
         }

@@ -15,6 +15,7 @@
 <div class="container">
     <h3 align="center" style="font-family: 'Calibri Light'">Редактирование заметки</h3>
     <form method="POST" action="/task/edit">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input name="id" id="taskid" type="hidden" value="${task.id}">
 
         <div class="row">

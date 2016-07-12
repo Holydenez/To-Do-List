@@ -1,7 +1,6 @@
-package vetrov.denis.todolist.models;
+package vetrov.denis.todolist.models.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.text.SimpleDateFormat;
@@ -11,9 +10,11 @@ import java.util.Date;
 /**
  * Created by Denis on 23.03.2016.
  */
-public class Task  {
+public class Task {
+    private User author;
     private String id;
     private String name;
+    private String category;
     private SimpleDateFormat simpleDateFormat;
     private Date createDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -92,6 +93,15 @@ public class Task  {
 
     public Task setPlanDateFailed(boolean planDateFailed) {
         this.planDateFailed = planDateFailed;
+        return this;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public Task setCategory(String category) {
+        this.category = category;
         return this;
     }
 }

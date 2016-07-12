@@ -15,6 +15,7 @@
 <div class="container">
     <h3 align="center" style="font-family: 'Calibri Light'">Новая заметка </h3>
     <form method="POST" action="/task/create">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="row">
             <div style="margin: auto" class="input-field col s12">
                 <label for="taskContent">Ваша заметка</label>

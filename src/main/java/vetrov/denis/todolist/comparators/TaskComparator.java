@@ -2,7 +2,7 @@ package vetrov.denis.todolist.comparators;
 
 
 import org.springframework.stereotype.Component;
-import vetrov.denis.todolist.models.Task;
+import vetrov.denis.todolist.models.entities.Task;
 
 import java.util.Comparator;
 
