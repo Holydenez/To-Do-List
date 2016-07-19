@@ -18,7 +18,7 @@ public class Task {
     private SimpleDateFormat simpleDateFormat;
     private Date createDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date planDate;
+    private Date planDate= new Date();
     private boolean planDateFailed;
     private boolean done;
     private boolean checked;

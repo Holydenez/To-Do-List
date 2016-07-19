@@ -59,6 +59,22 @@ public class TaskRepository {
                 .setCreateDate(new Date())
                 .setCategory("Дела")
         );
+        tasks.add(new Task()
+                .setId(UUID.randomUUID().toString())
+                .setName("Помыть квартиру")
+                .setDone(false)
+                .setChecked(false)
+                .setCreateDate(new Date())
+                .setCategory("Дела")
+        );
+        tasks.add(new Task()
+                .setId(UUID.randomUUID().toString())
+                .setName("Подать документы")
+                .setDone(false)
+                .setChecked(true)
+                .setCreateDate(new Date())
+                .setCategory("Дела")
+        );
     }
 
     public List<Task> getTasks() {

@@ -18,7 +18,7 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a href="">${currentUser.user.email}</a>
+            <a href="" style="margin: 5px">${currentUser.user.email}</a>
             <ul class="right hide-on-med-and-down">
                 <li><a class="modal-trigger" href="#modal1">Категории</a></li>
                 <li><a href="/task/archive/">Архив</a></li>
@@ -28,6 +28,7 @@
 </div>
 <div class="container s10">
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
+    <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
     <div class="row">
     <#list tasks>
         <#items as task>
@@ -62,7 +63,6 @@
                     </div>
                 </div>
             <#else>
-
             </#if>
         </#items>
     <#else>
@@ -79,12 +79,22 @@
         <form method="POST" action="/task/chooseCategory">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="modal-content hoverable">
-                <input name="category" id="category" type="text" value="Дела">
-
-                <button class="btn-large waves-effect waves-light right" type="submit" name="action">Сохранить
-                    <i class="material-icons right">send</i>
-                </button>
-
+                <div class="row">
+                    <div class="col s8">
+                        <div class="input-field col s12">
+                            <select name="category" id="category" type="text">
+                                <option  value="Дела">Дела</option>
+                                <option  value="Покупки">Покупки</option>
+                            </select>
+                            <label>Выбор категории</label>
+                        </div>
+                    </div>
+                    <div class="col s4">
+                        <button class="btn-large waves-effect waves-light right" type="submit" name="action">Выбрать
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
@@ -94,6 +104,9 @@
     $(document).ready(function () {
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $('.modal-trigger').leanModal();
+    });
+    $(document).ready(function() {
+        $('select').material_select();
     });
 </script>
 </html>
