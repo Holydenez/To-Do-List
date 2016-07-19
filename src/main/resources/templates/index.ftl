@@ -28,7 +28,15 @@
 </div>
 <div class="container s10">
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
-    <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
+    <div class="row">
+        <div class="col s3">
+            <a class="btn-floating btn-small" href="/task/all"><i class="small material-icons">swap_vert</i></a>
+        </div>
+        <div class="col s6">
+            <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
+        </div>
+        <div class="col s3"></div>
+    </div>
     <div class="row">
         <form method="POST" action="/task/all/checkDate">
         <#list tasks>

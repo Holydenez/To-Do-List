@@ -2,6 +2,7 @@ package vetrov.denis.todolist.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import vetrov.denis.todolist.comparators.DateComparator;
 import vetrov.denis.todolist.comparators.TaskComparator;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.models.entities.User;
@@ -16,6 +17,8 @@ import java.util.*;
 public class TaskRepository {
     @Autowired
     TaskComparator taskComparator;
+    @Autowired
+    DateComparator dateComparator;
     List<Task> tasks;
     @Autowired
     EmailSenderService emailSenderService;
@@ -36,6 +39,7 @@ public class TaskRepository {
                 .setName("Зайти на Новую почту")
                 .setDone(false)
                 .setChecked(false)
+                .setPlanDate(new Date(113, 7, 30))
                 .setCreateDate(new Date())
                 .setCategory("Дела")
         );
@@ -89,7 +93,7 @@ public class TaskRepository {
             }
         }
 
-        Collections.sort(activeTasks, taskComparator);
+        Collections.sort(activeTasks, dateComparator);
         return activeTasks;
     }
 
