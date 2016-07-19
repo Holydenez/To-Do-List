@@ -30,7 +30,7 @@
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
     <div class="row">
-        <form method="POST" action="/task/all">
+        <form method="POST" action="/task/all/checkDate">
         <#list tasks>
             <#items as task>
                 <#if task.category == currentUser.selectedCategory>
