@@ -17,7 +17,7 @@
 <body>
 <h1 align="center" style="font-family: 'Calibri Light'">ERROR</h1>
 ${error}
-${message}
+${message!""}
 
 </body>
 </html>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import vetrov.denis.todolist.comparators.TaskComparator;
 import vetrov.denis.todolist.models.entities.Task;
+import vetrov.denis.todolist.models.entities.User;
+import vetrov.denis.todolist.services.EmailSenderService;
 
 import java.util.*;
 
@@ -15,6 +17,8 @@ public class TaskRepository {
     @Autowired
     TaskComparator taskComparator;
     List<Task> tasks;
+    @Autowired
+    EmailSenderService emailSenderService;
 
     public TaskRepository() {
         tasks = new ArrayList<>();
@@ -24,7 +28,7 @@ public class TaskRepository {
                 .setDone(false)
                 .setChecked(true)
                 .setCreateDate(new Date())
-                .setPlanDate(new Date(116,7,30))
+                .setPlanDate(new Date(116, 7, 30))
                 .setCategory("Покупки")
         );
         tasks.add(new Task()
@@ -153,9 +157,13 @@ public class TaskRepository {
         }
 
     }
-    public void failedPlanedDate(Task task) {
-        if(task.getPlanDate().before(new Date())){
-            task.setPlanDateFailed(true);
+
+    public void failedPlanedDate() {
+        for (Task task : tasks) {
+            if (task.getPlanDate().before(new Date())) {
+                task.setPlanDateFailed(true);
+                emailSenderService.send("holydenez@gmail.com", "TO-DO LIST", "Ваша задача " + task.getName() + " из категории " + task.getCategory() + " просрочена");
+            }
         }
     }
 }

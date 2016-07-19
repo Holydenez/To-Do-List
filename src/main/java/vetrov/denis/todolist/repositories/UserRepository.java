@@ -9,7 +9,7 @@ import vetrov.denis.todolist.models.entities.User;
 public class UserRepository {
     public User findOneByEmail(String email){
         User user = new User();
-        user.setEmail("test@gmail.com");
+        user.setEmail("holydenez@gmail.com");
         user.setPasswordHash(new BCryptPasswordEncoder().encode("1111"));
         user.setRole(Role.ADMIN);
         return user;

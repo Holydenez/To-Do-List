@@ -19,7 +19,7 @@
         <div class="row">
             <div class="s12 col">
                 <label for="email">Email address</label>
-                <input type="email" name="email" id="email" required autofocus value="test@gmail.com">
+                <input type="email" name="email" id="email" required autofocus value="holydenez@gmail.com">
             </div>
             <div class="s12 col">
                 <label for="password">Password</label>

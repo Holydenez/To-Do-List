@@ -73,6 +73,8 @@
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.16" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.3" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.5" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
