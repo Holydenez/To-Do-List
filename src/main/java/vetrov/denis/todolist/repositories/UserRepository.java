@@ -1,20 +1,16 @@
 package vetrov.denis.todolist.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import vetrov.denis.todolist.models.entities.Role;
 import vetrov.denis.todolist.models.entities.User;
 
-@Repository
-public class UserRepository {
-    public User findOneByEmail(String email){
-        User user = new User();
-        user.setEmail("holydenez@gmail.com");
-        user.setPasswordHash(new BCryptPasswordEncoder().encode("1111"));
-        user.setRole(Role.ADMIN);
-        return user;
-    }
-//    public void getUserEmail(User user){
-//        user.getEmail();
-//    }
+import java.util.List;
+
+
+public interface UserRepository  extends JpaRepository<User, Long> {
+    List<User> findOneByEmail(String email);
 }

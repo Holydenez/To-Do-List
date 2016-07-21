@@ -22,6 +22,22 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    public User(String email, String passwordHash,Role role) {
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.role=role;
+    }
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "User[id=%d, email='%s', passwordHash='%s', role='%s' ]",
+                id, email, passwordHash,role);
+    }
+
     public Long getId() {
         return id;
     }

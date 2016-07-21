@@ -18,7 +18,9 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a href="" style="margin: 5px">${currentUser.user.email}</a>
+            <form action="/logout" method="post">
+                <a href="" style="margin: 5px">${currentUser.user.email}</a>
+            </form>
             <ul class="right hide-on-med-and-down">
                 <li><a class="modal-trigger" href="#modal1">Категории</a></li>
                 <li><a href="/task/archive/">Архив</a></li>
