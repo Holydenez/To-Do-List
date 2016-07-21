@@ -21,13 +21,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create() {
-        User user = new User("holydenez@gmail.com",new BCryptPasswordEncoder().encode("1111"), Role.ADMIN);
-//        user.setEmail(form.getEmail());
-//        user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-//        user.setRole(form.getRole());
-//        userRepository.save(user)
-        return user;
+    public User create(UserCreateFormService form) {
+        User user = new User();
+        user.setEmail(form.getEmail());
+        user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
+        user.setRole(form.getRole());
+        return userRepository.save(user);
     }
 
 }

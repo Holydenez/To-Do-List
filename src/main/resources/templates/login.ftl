@@ -31,7 +31,7 @@
             </button>
             </div>
             <div class="s6 col">
-            <a class="btn waves-effect waves-light right-aligned" href="/newUser">У меня еще нет аккаунта
+            <a class="btn waves-effect waves-light right-aligned" href="/user/create">У меня еще нет аккаунта
                 <i class="material-icons right">add</i>
             </a>
             </div>

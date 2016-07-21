@@ -13,29 +13,29 @@
 </head>
 <body>
 <div class="container">
-    <h1 align="center" style="font-family: 'Calibri Light'">Authorization</h1>
-    <form role="form" action="/login" method="post">
+    <h1 align="center" style="font-family: 'Calibri Light'">Registration</h1>
+    <form role="form" action="/user/create" method="post">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="row">
             <div class="s12 col">
                 <label for="email">Email address</label>
-                <input type="email" name="email" id="email" required autofocus value="">
+                <input type="email" name="email" id="email" required autofocus>
             </div>
             <div class="s12 col">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" required value="">
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="s12 col">
+                <label for="passwordRepeated">Repeat Password</label>
+                <input type="password" name="passwordRepeated" id="passwordRepeated" required>
             </div>
             <div class="s6 col">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Зарегестрироваться
-                <i class="material-icons right">send</i>
-            </button>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Зарегестрироваться
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </div>
     </form>
-
-<#if error.isPresent()>
-    <p>The email or password you have entered is invalid, try again.</p>
-</#if>
 </div>
 </body>
 </html>

@@ -7,7 +7,6 @@ import vetrov.denis.todolist.models.entities.User;
  */
 public interface UserService {
     User getUserByEmail(String email);
-
-    User create();
+    User create(UserCreateFormService form);
 
 }
