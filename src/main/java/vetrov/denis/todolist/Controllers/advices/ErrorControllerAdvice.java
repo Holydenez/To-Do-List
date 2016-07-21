@@ -1,4 +1,4 @@
-package vetrov.denis.todolist.controllers;
+package vetrov.denis.todolist.controllers.advices;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

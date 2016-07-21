@@ -18,7 +18,8 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a data-activates='dropdown1' data-beloworigin="true" data-hover="true" data-gutter="12px" class="dropdown-button btn red"
+            <a data-activates='dropdown1' data-beloworigin="true" data-hover="true" data-gutter="12px"
+               class="dropdown-button btn red"
                href="/logout">${currentUser.user.email}</a>
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="/logout">Logout</a></li>
@@ -33,19 +34,10 @@
 <div class="container s10">
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <div class="row">
-        <form method="POST" action="/task/all">
-            <div class="switch col s3">
-                <label>
-                    Important
-                    <input type="checkbox">
-                    <span class="lever">
-                    </span>
-                    Date
-                </label>
-            </div>
-            <a class="btn-floating  btn-small"> <i
-                    class="small material-icons">swap_vert</i></a>
-        </form>
+        <div class="col s3">
+                <a class="btn-floating  btn-small" href="/task/sort?taskSortType=${currentUser.taskSortType}">
+                    <i class="small material-icons">swap_vert</i></a>
+        </div>
         <div class="col s6">
             <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
         </div>

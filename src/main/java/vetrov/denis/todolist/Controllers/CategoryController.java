@@ -19,6 +19,6 @@ public class CategoryController {
     public String chooseCategory(@RequestParam String category,
                                  @ModelAttribute CurrentUser currentUser) {
         currentUser.setSelectedCategory(category);
-        return "redirect:/";
+        return "redirect:/task/all";
     }
 }

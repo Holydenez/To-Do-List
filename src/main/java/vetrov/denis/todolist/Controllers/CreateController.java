@@ -28,6 +28,6 @@ public class CreateController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String newTaskSubmit(@ModelAttribute Task task, Model model) {
         taskRepository.addTask(task);
-        return "redirect:/";
+        return "redirect:/task/all";
     }
 }

@@ -2,9 +2,11 @@ package vetrov.denis.todolist.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import vetrov.denis.todolist.models.CurrentUser;
 import vetrov.denis.todolist.repositories.TaskRepository;
 
 /**
@@ -17,23 +19,21 @@ public class ArchiveController {
     TaskRepository taskRepository;
 
     @RequestMapping(value = "/")
-    public ModelAndView showArchivePage() {
+    public ModelAndView showArchivePage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("archive");
-        model.addObject("tasks", taskRepository.getDoneTasks());
+        model.addObject("tasks", taskRepository.getDoneTasks(currentUser.getTaskSortType().getComparator()));
         return model;
     }
 
     @RequestMapping("/add")
     public String addToArchive(@RequestParam String id) {
         taskRepository.setTaskDone(id);
-        taskRepository.getDoneTasks();
-        return "redirect:/";
+        return "redirect:/task/all";
     }
 
     @RequestMapping("/remove")
     public String getTaskBack(@RequestParam String id) {
         taskRepository.undoTask(id);
-        taskRepository.getTasks();
-        return "redirect:/task/archive/";
+        return "redirect:/task/archive";
     }
 }

@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import vetrov.denis.todolist.comparators.TaskComparator;
+import vetrov.denis.todolist.models.CurrentUser;
+import vetrov.denis.todolist.models.TaskSortType;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.repositories.TaskRepository;
 
@@ -21,35 +23,30 @@ public class TasksController {
     @Autowired
     TaskRepository taskRepository;
 
-    @Autowired
-    TaskComparator taskComparator;
-
     @RequestMapping(value = "/all")
-    public ModelAndView showTasksPage() {
+    public ModelAndView showTasksPage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("index");
-        model.addObject("tasks", taskRepository.getTasks());
+        model.addObject("tasks", taskRepository.getTasks(currentUser.getTaskSortType().getComparator()));
         return model;
+    }
+
+    @RequestMapping("/sort")
+    public String setSortType( @ModelAttribute CurrentUser currentUser,
+                               @RequestParam TaskSortType taskSortType) {
+        currentUser.setTaskSortType(taskSortType.reverse());
+        return "redirect:/task/all";
     }
 
     @RequestMapping("/checked")
     public String setTaskChecked(@RequestParam String id) {
         taskRepository.setTaskChecked(id);
-        taskRepository.getTasks();
-        return "redirect:/";
+        return "redirect:/task/all";
     }
 
     @RequestMapping("/unchecked")
     public String setTaskUnchecked(@RequestParam String id) {
         taskRepository.setTaskUnchecked(id);
-        taskRepository.getTasks();
-        return "redirect:/";
+        return "redirect:/task/all";
     }
-
-    @RequestMapping(value = "/all/checkDate")
-    @Scheduled(cron = "0 0 7 * * *")
-    public void checkPlanedDate() {
-        taskRepository.failedPlanedDate();
-    }
-
 }
 
