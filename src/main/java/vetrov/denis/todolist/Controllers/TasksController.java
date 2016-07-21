@@ -5,10 +5,13 @@ package vetrov.denis.todolist.controllers;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import vetrov.denis.todolist.comparators.TaskComparator;
+import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.repositories.TaskRepository;
 
 @Controller
@@ -40,6 +43,12 @@ public class TasksController {
         taskRepository.setTaskUnchecked(id);
         taskRepository.getTasks();
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/all/checkDate")
+    @Scheduled(cron = "0 0 7 * * *")
+    public void checkPlanedDate() {
+        taskRepository.failedPlanedDate();
     }
 
 }

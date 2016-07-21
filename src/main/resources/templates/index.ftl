@@ -29,9 +29,19 @@
 <div class="container s10">
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <div class="row">
-        <div class="col s3">
-            <a class="btn-floating btn-small" href="/task/all"><i class="small material-icons">swap_vert</i></a>
-        </div>
+        <form method="POST" action="/task/all">
+            <div class="switch col s3">
+                <label>
+                    Important
+                    <input type="checkbox">
+                    <span class="lever">
+                    </span>
+                    Date
+                </label>
+            </div>
+            <a class="btn-floating  btn-small"> <i
+                    class="small material-icons">swap_vert</i></a>
+        </form>
         <div class="col s6">
             <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
         </div>

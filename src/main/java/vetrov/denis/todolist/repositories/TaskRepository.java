@@ -9,7 +9,6 @@ import vetrov.denis.todolist.models.entities.User;
 import vetrov.denis.todolist.services.EmailSenderService;
 
 import java.util.*;
-
 /**
  * Created by Denis on 30.06.2016.
  */
@@ -92,7 +91,6 @@ public class TaskRepository {
                 activeTasks.add(task);
             }
         }
-
         Collections.sort(activeTasks, dateComparator);
         return activeTasks;
     }
