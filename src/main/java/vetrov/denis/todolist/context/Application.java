@@ -40,7 +40,6 @@ public class Application {
             // save a couple of customers
             repository.save(new User("holydenez@gmail.com",new BCryptPasswordEncoder().encode("1111"), Role.ADMIN));
             repository.save(new User("user@gmail.com",new BCryptPasswordEncoder().encode("1111"), Role.USER));
-            repository.save(new User("user2@gmail.com",new BCryptPasswordEncoder().encode("1111"), Role.USER));
             // fetch all customers
             log.info("Customers found with findAll():");
             log.info("-------------------------------");

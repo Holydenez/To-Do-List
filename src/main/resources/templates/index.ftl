@@ -18,9 +18,11 @@
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <form action="/logout" method="post">
-                <a href="" style="margin: 5px">${currentUser.user.email}</a>
-            </form>
+            <a data-activates='dropdown1' data-beloworigin="true" data-hover="true" data-gutter="12px" class="dropdown-button btn red"
+               href="/logout">${currentUser.user.email}</a>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
             <ul class="right hide-on-med-and-down">
                 <li><a class="modal-trigger" href="#modal1">Категории</a></li>
                 <li><a href="/task/archive/">Архив</a></li>
@@ -97,7 +99,7 @@
     </div>
     <div class="bottom_buttons">
         <a class="btn-floating btn-large waves-effect waves-light red right" href="/task/create"><i
-                class="material-icons">add</i></a>
+                class="material-icons">note_add</i></a>
     </div>
     <div id="modal1" class="modal bottom-sheet">
         <form method="POST" action="/task/chooseCategory">

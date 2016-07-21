@@ -19,21 +19,16 @@
         <div class="row">
             <div class="s12 col">
                 <label for="email">Email address</label>
-                <input type="email" name="email" id="email" required autofocus value="holydenez@gmail.com">
+                <input type="email" name="email" id="email" required autofocus value="">
             </div>
             <div class="s12 col">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" required value="1111">
+                <input type="password" name="password" id="password" required value="">
             </div>
             <div class="s6 col">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Sign in
+            <button class="btn waves-effect waves-light" type="submit" name="action">Зарегестрироваться
                 <i class="material-icons right">send</i>
             </button>
-            </div>
-            <div class="s6 col">
-            <a class="btn waves-effect waves-light right-aligned" href="/newUser">У меня еще нет аккаунта
-                <i class="material-icons right">add</i>
-            </a>
             </div>
         </div>
     </form>
