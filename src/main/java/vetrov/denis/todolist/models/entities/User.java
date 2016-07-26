@@ -1,9 +1,12 @@
 package vetrov.denis.todolist.models.entities;
 
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity
+@Component 
 @Table(name = "user")
 public class User {
 

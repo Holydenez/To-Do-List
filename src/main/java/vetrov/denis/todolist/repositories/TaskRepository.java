@@ -1,6 +1,7 @@
 package vetrov.denis.todolist.repositories;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Transient;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Repository;
 import vetrov.denis.todolist.comparators.DateComparator;
@@ -11,6 +12,7 @@ import vetrov.denis.todolist.models.entities.User;
 import vetrov.denis.todolist.services.EmailSenderService;
 
 import java.util.*;
+
 /**
  * Created by Denis on 30.06.2016.
  */
@@ -20,6 +22,9 @@ public class TaskRepository {
     @Autowired
     EmailSenderService emailSenderService;
 
+    @Autowired
+    @Transient
+    User user;
     public TaskRepository() {
         tasks = new ArrayList<>();
         tasks.add(new Task()
@@ -158,11 +163,12 @@ public class TaskRepository {
 
     }
 
+
     public void failedPlanedDate() {
         for (Task task : tasks) {
             if (task.getPlanDate().before(new Date())) {
                 task.setPlanDateFailed(true);
-                emailSenderService.send("holydenez@gmail.com", "TO-DO LIST", "Ваша задача " + task.getName() + " из категории " + task.getCategory() + " просрочена");
+                emailSenderService.send(user.getEmail(), "TO-DO LIST", "Ваша задача " + task.getName() + " из категории " + task.getCategory() + " просрочена");
             }
         }
     }
