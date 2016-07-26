@@ -3,6 +3,7 @@ package vetrov.denis.todolist.models.entities;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,20 +11,42 @@ import java.util.Date;
 /**
  * Created by Denis on 23.03.2016.
  */
+@Entity
 public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, updatable = false)
+    private Long id;
+    @ManyToOne
     private User author;
-    private String id;
+    @Column
     private String name;
-    private String category;
+    @ManyToOne
+    private Category category;
+    @Column
     private SimpleDateFormat simpleDateFormat;
+    @Column
     private Date createDate;
+    @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date planDate= new Date();
+    private Date planDate = new Date();
+    @Column
     private boolean planDateFailed;
+    @Column
     private boolean done;
+    @Column
     private boolean checked;
 
-    public Task setId(String id) {
+    public User getAuthor() {
+        return author;
+    }
+
+    public Task setAuthor(User author) {
+        this.author = author;
+        return this;
+    }
+
+    public Task setId(Long id) {
         this.id = id;
         return this;
     }
@@ -32,7 +55,7 @@ public class Task {
         return name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -96,11 +119,11 @@ public class Task {
         return this;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public Task setCategory(String category) {
+    public Task setCategory(Category category) {
         this.category = category;
         return this;
     }

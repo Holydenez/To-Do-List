@@ -25,8 +25,36 @@
                 <li><a href="/logout">Logout</a></li>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <li><a class="modal-trigger" href="#modal1">Категории</a></li>
+                <li><a class="dropdown-button" data-activates='dropdownCategory' data-alignment="left"
+                       data-hover="true"
+                       data-beloworigin="false" data-constrainwidth="false">Категории</a></li>
+
                 <li><a href="/task/archive/">Архив</a></li>
+            </ul>
+            <ul id='dropdownCategory' class='dropdown-content'  style="width:70%">
+                <li>
+                    <form method="POST" action="/task/chooseCategory">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <div class="row">
+                            <div class="col s8">
+                                <div>
+                                    <div class="input-field col s12">
+                                        <select name="category" id="category" type="text">
+                                            <option value="Дела">Дела</option>
+                                            <option value="Покупки">Покупки</option>
+                                        </select>
+                                        <label>Выбор категории</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                <button class="btn btn-medium waves-effect waves-light right" type="submit"
+                                        name="action">Выбрать
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
@@ -35,8 +63,8 @@
     <h1 align="center" style="font-family: 'Calibri Light'">TO-DO LIST</h1>
     <div class="row">
         <div class="col s3">
-                <a class="btn-floating  btn-small" href="/task/sort?taskSortType=${currentUser.taskSortType}">
-                    <i class="small material-icons">swap_vert</i></a>
+            <a class="btn-floating  btn-small" href="/task/sort?taskSortType=${currentUser.taskSortType}">
+                <i class="small material-icons">swap_vert</i></a>
         </div>
         <div class="col s6">
             <h5 align="center" style="font-family: 'Calibri Light'">${currentUser.selectedCategory}</h5>
@@ -44,7 +72,20 @@
         <div class="col s3"></div>
     </div>
     <div class="row">
-        <form method="POST" action="/task/all/checkDate">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a href="#test1">Test 1</a></li>
+                <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                <li class="tab col s3"><a href="#test4">Test 4</a></li>
+            </ul>
+        </div>
+        <div id="test1" class="col s12">Test 1</div>
+        <div id="test2" class="col s12">Test 2</div>
+        <div id="test3" class="col s12">Test 3</div>
+        <div id="test4" class="col s12">Test 4</div>
+    </div>
+    <div class="row">
         <#list tasks>
             <#items as task>
                 <#if task.category == currentUser.selectedCategory>
@@ -87,34 +128,10 @@
                 <label>Задачи не найдены</label>
             </div>
         </#list>
-        </form>
     </div>
     <div class="bottom_buttons">
         <a class="btn-floating btn-large waves-effect waves-light red right" href="/task/create"><i
                 class="material-icons">note_add</i></a>
-    </div>
-    <div id="modal1" class="modal bottom-sheet">
-        <form method="POST" action="/task/chooseCategory">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <div class="modal-content hoverable">
-                <div class="row">
-                    <div class="col s8">
-                        <div class="input-field col s12">
-                            <select name="category" id="category" type="text">
-                                <option value="Дела">Дела</option>
-                                <option value="Покупки">Покупки</option>
-                            </select>
-                            <label>Выбор категории</label>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <button class="btn-large waves-effect waves-light right" type="submit" name="action">Выбрать
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 </body>

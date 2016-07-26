@@ -1,12 +1,15 @@
 package vetrov.denis.todolist.models.entities;
 
 
-import org.springframework.stereotype.Component;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.List;
 
 @Entity
-@Component 
 @Table(name = "user")
 public class User {
 
@@ -25,10 +28,18 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User(String email, String passwordHash,Role role) {
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+    @Cascade(CascadeType.ALL)
+    List<Task> tasks;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @Cascade(CascadeType.ALL)
+    List<Category> categories;
+
+    public User(String email, String passwordHash, Role role) {
         this.email = email;
         this.passwordHash = passwordHash;
-        this.role=role;
+        this.role = role;
     }
 
     public User() {
@@ -38,7 +49,7 @@ public class User {
     public String toString() {
         return String.format(
                 "User[id=%d, email='%s', passwordHash='%s', role='%s' ]",
-                id, email, passwordHash,role);
+                id, email, passwordHash, role);
     }
 
     public Long getId() {
@@ -73,4 +84,19 @@ public class User {
         this.role = role;
     }
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 }
