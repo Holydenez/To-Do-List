@@ -21,18 +21,18 @@ public class ArchiveController {
     @RequestMapping(value = "/")
     public ModelAndView showArchivePage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("archive");
-        model.addObject("tasks", taskRepository.getDoneTasks(currentUser.getTaskSortType().getComparator()));
+        model.addObject("user", taskRepository.getDoneTasks(currentUser, currentUser.getTaskSortType().getComparator()));
         return model;
     }
 
     @RequestMapping("/add")
-    public String addToArchive(@RequestParam String id) {
+    public String addToArchive(@RequestParam Long id) {
         taskRepository.setTaskDone(id);
         return "redirect:/task/all";
     }
 
     @RequestMapping("/remove")
-    public String getTaskBack(@RequestParam String id) {
+    public String getTaskBack(@RequestParam Long id) {
         taskRepository.undoTask(id);
         return "redirect:/task/archive";
     }

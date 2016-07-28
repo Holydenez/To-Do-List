@@ -22,25 +22,28 @@
 <#--</div>-->
     <h1 align="center" style="font-family: 'Calibri Light'">АРХИВ</h1>
     <div class="row">
-    <#list tasks>
+    <#list currentUser.user.tasks>
         <#items as task>
-            <div class="hoverable s12 col showHoverBtn">
-                <div class="col s4 m4 center-align">
-                    <#if task.isChecked()>
-                        <a> <img src="/img/star.png" width="17%" height="17%"></a>
-                    <#else>
-                        <a> <img src="/img/emptyStar.png" width="19%" height="19%"></a>
-                    </#if>
-                </div>
-                <div class="col s4 m4 center-align">
-                    <p>${task.name}</p>
-                </div>
-                <div class="showHoverBtn col s4 m4">
-                    <div class="hiddendiv">
-                        <a class=" waves-effect waves-light btn center-align "  href="/task/archive/remove?id=${task.id}">Вернуть</a>
+            <#if task.isDone()>
+                <div class="hoverable s12 col showHoverBtn">
+                    <div class="col s4 m4 center-align">
+                        <#if task.isChecked()>
+                            <a> <img src="/img/star.png" width="17%" height="17%"></a>
+                        <#else>
+                            <a> <img src="/img/emptyStar.png" width="19%" height="19%"></a>
+                        </#if>
+                    </div>
+                    <div class="col s4 m4 center-align">
+                        <p>${task.name}</p>
+                    </div>
+                    <div class="showHoverBtn col s4 m4">
+                        <div class="hiddendiv">
+                            <a class=" waves-effect waves-light btn center-align "
+                               href="/task/archive/remove?id=${task.id}">Вернуть</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </#if>
         </#items>
     <#else>
         <div>

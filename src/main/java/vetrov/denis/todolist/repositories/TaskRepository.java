@@ -62,8 +62,9 @@ public class TaskRepository {
     }
 
     public void addTask(Task task) {
-//        task.setId(UUID.randomUUID().toString());
-//        tasks.add(task);
+//        entityManager.getTransaction().begin();
+//        entityManager.persist(task);
+//        entityManager.getTransaction().commit();
     }
 
     public Task getTask(Long id) {
@@ -78,20 +79,12 @@ public class TaskRepository {
         Task task = entityManager.find(Task.class, id);
         task.setDone(true);
         entityManager.merge(task);
-//        for (Task task : tasks) {
-//            if (task.getId().equals(id)) {
-//                task.setDone(true);
-//            }
-//        }
-
     }
 
     public void undoTask(Long id) {
-//        for (Task task : tasks) {
-//            if (task.getId().equals(id)) {
-//                task.setDone(false);
-//            }
-//        }
+       Task task = entityManager.find(Task.class, id);
+        task.setDone(false);
+        entityManager.merge(task);
 
     }
 

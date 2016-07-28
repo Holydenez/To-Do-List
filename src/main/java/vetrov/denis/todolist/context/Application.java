@@ -50,16 +50,17 @@ public class Application {
             List<Task> tasks = new ArrayList<>();
             List<Category> categories=new ArrayList<>();
             Category category = new Category("Дела", admin, tasks);
-
+            Category category2 = new Category("Покупки", admin, tasks);
             categories.add(category);
+            categories.add(category2);
             tasks.add(new Task()
-                    .setName("Купить помидоров")
+                    .setName("Купить помидоров2")
                     .setDone(false)
                     .setChecked(true)
                     .setCreateDate(new Date())
                     .setPlanDate(new Date(116, 7, 30))
                     .setAuthor(admin)
-                    .setCategory(category)
+                    .setCategory(category2)
             );
             tasks.add(new Task()
                     .setName("Зайти на Новую почту")
@@ -79,12 +80,12 @@ public class Application {
                     .setCategory(category)
             );
             tasks.add(new Task()
-                    .setName("Забрать перчатки из Розетки")
+                    .setName("Забрать перчатки из Розетки2")
                     .setDone(true)
                     .setChecked(false)
                     .setCreateDate(new Date())
                     .setAuthor(admin)
-                    .setCategory(category)
+                    .setCategory(category2)
             );
             tasks.add(new Task()
                     .setName("Скачать дискографию Эминема")

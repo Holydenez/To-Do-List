@@ -22,7 +22,7 @@ public class EditController {
     TaskRepository taskRepository;
 
     @RequestMapping("/edit")
-    public ModelAndView editTaskPage(@RequestParam String id) {
+    public ModelAndView editTaskPage(@RequestParam Long id) {
         ModelAndView model = new ModelAndView("editTask");
         model.addObject("task", taskRepository.getTask(id));
         return model;

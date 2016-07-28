@@ -7,6 +7,7 @@ package vetrov.denis.todolist.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,7 +16,8 @@ import vetrov.denis.todolist.models.CurrentUser;
 import vetrov.denis.todolist.models.TaskSortType;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.repositories.TaskRepository;
-
+import vetrov.denis.todolist.repositories.UserRepository;
+@Transactional
 @Controller
 @RequestMapping("/task")
 public class TasksController {
@@ -23,10 +25,14 @@ public class TasksController {
     @Autowired
     TaskRepository taskRepository;
 
+    @Autowired
+    UserRepository repository;
+
     @RequestMapping(value = "/all")
     public ModelAndView showTasksPage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("index");
-        model.addObject("tasks", taskRepository.getTasks(currentUser.getTaskSortType().getComparator()));
+        model.addObject("user", taskRepository.getTasks(currentUser, currentUser.getTaskSortType().getComparator()));
+        //model.addObject("user", repository.findOneByEmail(currentUser.getUsername()).get(0));
         return model;
     }
 
@@ -38,13 +44,13 @@ public class TasksController {
     }
 
     @RequestMapping("/checked")
-    public String setTaskChecked(@RequestParam String id) {
+    public String setTaskChecked(@RequestParam Long id) {
         taskRepository.setTaskChecked(id);
         return "redirect:/task/all";
     }
 
     @RequestMapping("/unchecked")
-    public String setTaskUnchecked(@RequestParam String id) {
+    public String setTaskUnchecked(@RequestParam Long id) {
         taskRepository.setTaskUnchecked(id);
         return "redirect:/task/all";
     }

@@ -29,17 +29,17 @@
                 <input name="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
                 <label for="checkStar">Важное</label>
             </div>
-            <div class="row">
-                <div class="col s12">
-                    <div class="input-field col s12">
-                        <select name="category" id="category" type="text">
-                            <option value="Дела">Дела</option>
-                            <option value="Покупки">Покупки</option>
-                        </select>
-                        <label>Выбор категории</label>
-                    </div>
-                </div>
-            </div>
+            <#--<div class="row">-->
+                <#--<div class="col s12">-->
+                    <#--<div class="input-field col s12">-->
+                        <#--<select name="category" id="category" type="text">-->
+                            <#--<option value="Дела">Дела</option>-->
+                            <#--<option value="Покупки">Покупки</option>-->
+                        <#--</select>-->
+                        <#--<label>Выбор категории</label>-->
+                    <#--</div>-->
+                <#--</div>-->
+            <#--</div>-->
         </div>
         <div class="bottom_buttons">
             <div class="row">
