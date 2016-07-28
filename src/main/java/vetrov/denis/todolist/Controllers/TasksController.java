@@ -17,6 +17,10 @@ import vetrov.denis.todolist.models.TaskSortType;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.repositories.TaskRepository;
 import vetrov.denis.todolist.repositories.UserRepository;
+
+import java.util.Collections;
+import java.util.Comparator;
+
 @Transactional
 @Controller
 @RequestMapping("/task")
@@ -26,13 +30,13 @@ public class TasksController {
     TaskRepository taskRepository;
 
     @Autowired
-    UserRepository repository;
+    UserRepository userRepository;
 
     @RequestMapping(value = "/all")
-    public ModelAndView showTasksPage(@ModelAttribute CurrentUser currentUser) {
+    public ModelAndView showTasksPage(@ModelAttribute CurrentUser currentUser, Comparator<Task> comparator) {
         ModelAndView model = new ModelAndView("index");
-        model.addObject("user", taskRepository.getTasks(currentUser, currentUser.getTaskSortType().getComparator()));
-        //model.addObject("user", repository.findOneByEmail(currentUser.getUsername()).get(0));
+        model.addObject("user", userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0));
+        model.addObject( taskRepository.compareTasks(currentUser, currentUser.getTaskSortType().getComparator()));
         return model;
     }
 

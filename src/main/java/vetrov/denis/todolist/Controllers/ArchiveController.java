@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import vetrov.denis.todolist.models.CurrentUser;
 import vetrov.denis.todolist.repositories.TaskRepository;
+import vetrov.denis.todolist.repositories.UserRepository;
 
 /**
  * Created by Denis on 05.07.2016.
@@ -18,10 +19,14 @@ public class ArchiveController {
     @Autowired
     TaskRepository taskRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping(value = "/")
     public ModelAndView showArchivePage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("archive");
-        model.addObject("user", taskRepository.getDoneTasks(currentUser, currentUser.getTaskSortType().getComparator()));
+        taskRepository.compareTasks(currentUser, currentUser.getTaskSortType().getComparator());
+        model.addObject("user", userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0));
         return model;
     }
 
@@ -34,6 +39,6 @@ public class ArchiveController {
     @RequestMapping("/remove")
     public String getTaskBack(@RequestParam Long id) {
         taskRepository.undoTask(id);
-        return "redirect:/task/archive";
+        return "redirect:/task/archive/";
     }
 }

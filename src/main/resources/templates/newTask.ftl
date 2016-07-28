@@ -29,20 +29,20 @@
                 <input name="checked" type="checkbox" class="filled-in validate" id="checkStar"/>
                 <label for="checkStar">Важное</label>
             </div>
-            <#--<div class="row">-->
-                <#--<div class="col s12">-->
-                    <#--<div class="input-field col s12">-->
-                        <#--<select name="category" id="category" type="category">-->
-                        <#--<#list user.categories>-->
-                            <#--<#items as category>-->
-                                <#--<option value="${category}">${category}</option>-->
-                            <#--</#items>-->
-                        <#--</#list>-->
-                        <#--</select>-->
-                        <#--<label>Выбор категории</label>-->
-                    <#--</div>-->
-                <#--</div>-->
-            <#--</div>-->
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <select name="category" id="category" type="category">
+                        <#list user.categories>
+                            <#items as category>
+                                <option value="${category.id}">${category.name}</option>
+                            </#items>
+                        </#list>
+                        </select>
+                        <label>Выбор категории</label>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="bottom_buttons">
             <div class="row">

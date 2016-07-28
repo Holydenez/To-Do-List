@@ -37,7 +37,8 @@ public class TaskRepository {
     }
 
     public List<Task> compareTasks(CurrentUser currentUser, Comparator<Task> comparator) {
-        List<Task> tasks =userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0).getTasks();
+        List<Task> tasks = new LinkedList<>();
+        tasks.addAll(userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0).getTasks());
         Collections.sort(tasks, comparator);
         return tasks;
     }
@@ -58,7 +59,6 @@ public class TaskRepository {
     }
 
     public void addTask(Task task) {
-      //  task.setCategory(getTask(id).getCategory());
         entityManager.persist(task);
     }
 
