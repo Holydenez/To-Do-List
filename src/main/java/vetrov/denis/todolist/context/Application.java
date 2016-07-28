@@ -54,7 +54,7 @@ public class Application {
             categories.add(category);
             categories.add(category2);
             tasks.add(new Task()
-                    .setName("Купить помидоров2")
+                    .setName("Купить помидоров")
                     .setDone(false)
                     .setChecked(true)
                     .setCreateDate(new Date())
@@ -80,7 +80,7 @@ public class Application {
                     .setCategory(category)
             );
             tasks.add(new Task()
-                    .setName("Забрать перчатки из Розетки2")
+                    .setName("Забрать перчатки из Розетки")
                     .setDone(true)
                     .setChecked(false)
                     .setCreateDate(new Date())

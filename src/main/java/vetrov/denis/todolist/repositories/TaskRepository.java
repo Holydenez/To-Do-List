@@ -62,9 +62,7 @@ public class TaskRepository {
     }
 
     public void addTask(Task task) {
-//        entityManager.getTransaction().begin();
-//        entityManager.persist(task);
-//        entityManager.getTransaction().commit();
+        entityManager.persist(task);
     }
 
     public Task getTask(Long id) {
@@ -72,7 +70,7 @@ public class TaskRepository {
     }
 
     public void editTask(Task newTask) {
-//        tasks.set(tasks.indexOf(getTask(newTask.getId())), newTask);
+        entityManager.merge(newTask);
     }
 
     public void setTaskDone(Long id) {
@@ -85,24 +83,17 @@ public class TaskRepository {
        Task task = entityManager.find(Task.class, id);
         task.setDone(false);
         entityManager.merge(task);
-
     }
 
     public void setTaskChecked(Long id) {
-//        for (Task task : tasks) {
-//            if (task.getId().equals(id)) {
-//                task.setChecked(true);
-//            }
-//        }
-
+        Task task = entityManager.find(Task.class, id);
+        task.setChecked(true);
+        entityManager.merge(task);
     }
 
     public void setTaskUnchecked(Long id) {
-//        for (Task task : tasks) {
-//            if (task.getId().equals(id)) {
-//                task.setChecked(false);
-//            }
-//        }
-
+        Task task = entityManager.find(Task.class, id);
+        task.setChecked(false);
+        entityManager.merge(task);
     }
 }
