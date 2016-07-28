@@ -32,9 +32,12 @@
             <#--<div class="row">-->
                 <#--<div class="col s12">-->
                     <#--<div class="input-field col s12">-->
-                        <#--<select name="category" id="category" type="text">-->
-                            <#--<option value="Дела">Дела</option>-->
-                            <#--<option value="Покупки">Покупки</option>-->
+                        <#--<select name="category" id="category" type="category">-->
+                        <#--<#list user.categories>-->
+                            <#--<#items as category>-->
+                                <#--<option value="${category}">${category}</option>-->
+                            <#--</#items>-->
+                        <#--</#list>-->
                         <#--</select>-->
                         <#--<label>Выбор категории</label>-->
                     <#--</div>-->
@@ -57,7 +60,7 @@
 </div>
 </body>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('select').material_select();
     });
 </script>

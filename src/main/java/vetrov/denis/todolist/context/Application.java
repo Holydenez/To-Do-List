@@ -22,10 +22,7 @@ import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.models.entities.User;
 import vetrov.denis.todolist.repositories.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Configuration
 @ComponentScan("vetrov")
@@ -112,7 +109,6 @@ public class Application {
                     .setCategory(category)
             );
             admin.setCategories(categories);
-           // admin.setTasks(tasks);
 
             repository.save(admin);
             repository.save(new User("user@gmail.com", new BCryptPasswordEncoder().encode("1111"), Role.USER));

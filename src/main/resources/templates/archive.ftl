@@ -22,7 +22,7 @@
 <#--</div>-->
     <h1 align="center" style="font-family: 'Calibri Light'">АРХИВ</h1>
     <div class="row">
-    <#list currentUser.user.tasks>
+    <#list user.tasks>
         <#items as task>
             <#if task.isDone()>
                 <div class="hoverable s12 col showHoverBtn">

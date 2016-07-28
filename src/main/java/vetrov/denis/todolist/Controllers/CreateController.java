@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import vetrov.denis.todolist.models.CurrentUser;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.repositories.TaskRepository;
+import vetrov.denis.todolist.repositories.UserRepository;
+
+import java.util.Collections;
 
 /**
  * Created by Denis on 05.07.2016.
@@ -19,9 +23,13 @@ public class CreateController {
     @Autowired
     TaskRepository taskRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping("/create")
-    public ModelAndView showNewTasksPage() {
+    public ModelAndView showNewTasksPage(@ModelAttribute CurrentUser currentUser) {
         ModelAndView model = new ModelAndView("newTask");
+        model.addObject("user", userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0));
         return model;
     }
 

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import vetrov.denis.todolist.comparators.DateComparator;
 import vetrov.denis.todolist.comparators.TaskComparator;
 import vetrov.denis.todolist.models.CurrentUser;
+import vetrov.denis.todolist.models.entities.Category;
 import vetrov.denis.todolist.models.entities.Task;
 import vetrov.denis.todolist.models.entities.User;
 import vetrov.denis.todolist.services.EmailSenderService;
@@ -19,7 +20,7 @@ import java.util.*;
 @Transactional
 public class TaskRepository {
     @Autowired
-    UserRepository repository;
+    UserRepository userRepository;
 
     @Autowired
     EntityManager entityManager;
@@ -35,19 +36,14 @@ public class TaskRepository {
         return activeTasks;
     }
 
-    public List<Task> getTasks(CurrentUser currentUser, Comparator<Task> comparator) {
-        List<Task> activeTasks = new ArrayList<>();
-        for (Task task : getUserTasks(currentUser)) {
-            if (!task.isDone()) {
-                activeTasks.add(task);
-            }
-        }
-        Collections.sort(activeTasks, comparator);
-        return activeTasks;
+    public List<Task> compareTasks(CurrentUser currentUser, Comparator<Task> comparator) {
+        List<Task> tasks =userRepository.findOneByEmail(currentUser.getUser().getEmail()).get(0).getTasks();
+        Collections.sort(tasks, comparator);
+        return tasks;
     }
 
     private List<Task> getUserTasks(CurrentUser currentUser) {
-        return repository.findOneByEmail(currentUser.getUsername()).get(0).getTasks();
+        return userRepository.findOneByEmail(currentUser.getUsername()).get(0).getTasks();
     }
 
     public List<Task> getDoneTasks(CurrentUser currentUser, Comparator<Task> comparator) {
@@ -62,6 +58,7 @@ public class TaskRepository {
     }
 
     public void addTask(Task task) {
+      //  task.setCategory(getTask(id).getCategory());
         entityManager.persist(task);
     }
 
@@ -69,7 +66,8 @@ public class TaskRepository {
         return entityManager.find(Task.class, id);
     }
 
-    public void editTask(Task newTask) {
+    public void editTask(Task newTask, Long id) {
+        newTask.setCategory(getTask(id).getCategory());
         entityManager.merge(newTask);
     }
 
@@ -80,7 +78,7 @@ public class TaskRepository {
     }
 
     public void undoTask(Long id) {
-       Task task = entityManager.find(Task.class, id);
+        Task task = entityManager.find(Task.class, id);
         task.setDone(false);
         entityManager.merge(task);
     }

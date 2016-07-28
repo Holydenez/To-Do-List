@@ -29,8 +29,8 @@ public class EditController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editTask(@ModelAttribute Task task) {
-        taskRepository.editTask(task);
+    public String editTask(@ModelAttribute Task task,Long id) {
+        taskRepository.editTask(task,id);
         return "redirect:/task/all";
     }
 
